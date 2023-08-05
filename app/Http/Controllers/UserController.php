@@ -86,6 +86,7 @@ class UserController extends Controller
             'nama_petugas' => $request->nama_petugas,
             'username' => $request->username,
             'password' => bcrypt($request->password),
+            'level' => $request->level,
             $request->except(['_token'])
         ]);
         return redirect('/user')->with('status',[

@@ -22,6 +22,14 @@
                                     <label>Username</label>
                                     <input type="text" class="form-control" name="username" placeholder="Masukkan Username" value="{{$user->username}}" required>
                                 </div>
+                                <div class="form-group">
+                                    <label>Level</label>
+                                    <select name="level" class="form-control">
+                                        <option value="{{$user->level}}" selected>Default : -- {{$user->level}} --</option>
+                                        <option value="admin">Admin</option>
+                                        <option value="petugas">Petugas</option>
+                                    </select>
+                                </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Cancel</button>
                             </form>

@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 25);
             $table->string('nama_petugas', 35);
             $table->string('password');
-            $table->enum('level', ['admin','petugas']);
+            $table->enum('level', ['admin','petugas'])->default('petugas');
             $table->timestamps();
         });
     }

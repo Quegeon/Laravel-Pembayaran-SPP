@@ -24,6 +24,7 @@
                                         <th>No / ID</th>
                                         <th>Nama Petugas</th>
                                         <th>Username</th>
+                                        <th>Level</th>
                                         <th>Tanggal Daftar</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -34,6 +35,7 @@
                                         <td>{{$u->id}}</td>
                                         <td>{{$u->nama_petugas}}</td>
                                         <td>{{$u->username}}</td>
+                                        <td>{{$u->level}}</td>
                                         <td>{{$u->created_at}}</td>
                                         <td>
                                             <a href="/user/{{$u->id}}/show" class="btn btn-warning">Edit</a>
