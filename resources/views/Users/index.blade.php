@@ -37,7 +37,7 @@
                                         <td>{{$u->created_at}}</td>
                                         <td>
                                             <a href="/user/{{$u->id}}/show" class="btn btn-warning">Edit</a>
-                                            <a href="/user/{{$u->id}}/destroy" class="btn btn-warning" onclick="return confirm('Delete Data Ini')">Delete</a>
+                                            <a href="/user/{{$u->id}}/destroy" class="btn btn-warning" onclick="return confirm('Hapus Data Ini?')">Delete</a>
                                             <a href="/user/{{$u->id}}/show-pwd" class="btn btn-warning">Change Password</a>
                                         </td>
                                     </tr>
