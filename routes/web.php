@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\SPPController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,3 +47,11 @@ Route::post('/siswa/store', [SiswaController::class,'store']);
 Route::get('/siswa/{nis}/show', [SiswaController::class,'show']);
 Route::post('/siswa/{nis}/update', [SiswaController::class,'update']);
 Route::get('/siswa/{nis}/destroy', [SiswaController::class,'destroy']);
+
+# SPP Routes
+Route::get('/spp', [SPPController::class,'index']);
+Route::get('/spp/create', [SPPController::class,'create']);
+Route::post('/spp/store', [SPPController::class,'store']);
+Route::get('/spp/{id}/show', [SPPController::class,'show']);
+Route::post('/spp/{id}/update', [SPPController::class,'update']);
+Route::get('/spp/{id}/destroy', [SPPController::class,'destroy']);

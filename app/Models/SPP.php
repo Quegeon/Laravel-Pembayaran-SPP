@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SPP extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'keterangan',
+        'tahun',
+        'nominal'
+    ];
 }

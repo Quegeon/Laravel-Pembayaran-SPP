@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SPP;
 use Illuminate\Http\Request;
 
 class SPPController extends Controller
@@ -13,7 +14,8 @@ class SPPController extends Controller
      */
     public function index()
     {
-        //
+        $spp = SPP::all();
+        return view('SPP.index', compact(['spp']));
     }
 
     /**
@@ -23,7 +25,7 @@ class SPPController extends Controller
      */
     public function create()
     {
-        //
+        return view('SPP.create');
     }
 
     /**
@@ -34,7 +36,17 @@ class SPPController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        SPP::create([
+            'keterangan' => $request->keterangan,
+            'tahun' => $request->tahun,
+            'nominal' => $request->nominal,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/spp')->with('status',[
+            'title' => 'Data Has Been Added',
+            'type' => 'success'
+        ]);
     }
 
     /**
@@ -45,7 +57,8 @@ class SPPController extends Controller
      */
     public function show($id)
     {
-        //
+        $spp = SPP::find($id);
+        return view('SPP.show', compact(['spp']));
     }
 
     /**
@@ -68,7 +81,18 @@ class SPPController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $spp = SPP::find($id);
+        $spp->update([
+            'keterangan' => $request->keterangan,
+            'tahun' => $request->tahun,
+            'nominal' => $request->nominal,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/spp')->with('status',[
+            'title' => 'Data Has Been Updated',
+            'type' => 'success'
+        ]);
     }
 
     /**
@@ -79,6 +103,12 @@ class SPPController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $spp = SPP::find($id);
+        $spp->delete();
+        
+        return redirect('/spp')->with('status',[
+            'title' => 'Data Has Been Deleted',
+            'type' => 'warning'
+        ]);
     }
 }
