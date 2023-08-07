@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelas;
+use App\Models\Siswa;
+use Error;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -13,7 +16,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //
+        $siswa = Siswa::all();
+        return view('Siswa.index', compact(['siswa']));
     }
 
     /**
@@ -23,7 +27,8 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        //
+        $kelas = Kelas::all();
+        return view('Siswa.create', compact(['kelas']));
     }
 
     /**
@@ -34,7 +39,19 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Siswa::create([
+            'nis' => $request->nis,
+            'nama' => $request->nama,
+            'id_kelas' => $request->nama_kelas,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/siswa')->with('status', [
+            'title' => 'Data Has Been Added',
+            'type' => 'success'
+        ]);
     }
 
     /**
@@ -45,7 +62,9 @@ class SiswaController extends Controller
      */
     public function show($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $kelas = Kelas::all();
+        return view('Siswa.show', compact(['siswa','kelas']));
     }
 
     /**
@@ -68,7 +87,21 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->update([
+            'nis' => $request->nis,
+            'nama' => $request->nama,
+            'id_kelas' => $request->nama_kelas,
+            'alamat' => $request->alamat,
+            'no_telp' => $request->no_telp,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/siswa')->with('status', [
+            'title' => 'Data Has Been Updated',
+            'type' => 'success'
+        ]);
+
     }
 
     /**
@@ -79,6 +112,12 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        
+        return redirect('/siswa')->with('status', [
+            'title' => 'Data Has Been Deleted',
+            'type' => 'warning'
+        ]);
     }
 }

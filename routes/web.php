@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,11 @@ Route::post('/kelas/store', [KelasController::class,'store']);
 Route::get('/kelas/{id}/show', [KelasController::class,'show']);
 Route::post('/kelas/{id}/update', [KelasController::class,'update']);
 Route::get('/kelas/{id}/destroy', [KelasController::class,'destroy']);
+
+# Siswa Routes
+Route::get('/siswa', [SiswaController::class,'index']);
+Route::get('/siswa/create', [SiswaController::class,'create']);
+Route::post('/siswa/store', [SiswaController::class,'store']);
+Route::get('/siswa/{nis}/show', [SiswaController::class,'show']);
+Route::post('/siswa/{nis}/update', [SiswaController::class,'update']);
+Route::get('/siswa/{nis}/destroy', [SiswaController::class,'destroy']);

@@ -16,17 +16,13 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>Nama Kelas</label>
-                                    <select name="nama_kelas" class="form-control">
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
+                                    <input type="text" name="nama_kelas" class="form-control" placeholder="Masukkan Nama Kelas" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Kompetensi Keahlian</label>
-                                    <select name="kompetensi_keahlian" class="form-control">
-                                        <option value="PPLG">Pengembangan Perangkat Lunak dan Gim</option>
-                                        <option value="TMS">Teknik Pemesinan</option>
+                                    <select name="kompetensi_keahlian" class="form-control" required>
+                                        <option value="Pengembangan Perangkat Lunak dan Gim">Pengembangan Perangkat Lunak dan Gim</option>
+                                        <option value="Teknik Pemesinan">Teknik Pemesinan</option>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
