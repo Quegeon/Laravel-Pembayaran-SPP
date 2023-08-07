@@ -16,11 +16,11 @@
                                 @csrf
                                 <div class="form-group">
                                     <label>NIS</label>
-                                    <input type="number" name="nis" class="form-control" placeholder="{{$siswa->nis}}" required>
+                                    <input type="number" name="nis" class="form-control" placeholder="{{$siswa->nis}}" value="{{$siswa->nis}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama</label>
-                                    <input type="text" name="nama" class="form-control" placeholder="{{$siswa->nama}}" required>
+                                    <input type="text" name="nama" class="form-control" placeholder="{{$siswa->nama}}" value="{{$siswa->nama}}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Kelas</label>
@@ -33,11 +33,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Alamat</label>
-                                    <textarea name="alamat" placeholder="{{$siswa->alamat}}" class="form-control" required></textarea>
+                                    <textarea name="alamat" placeholder="{{$siswa->alamat}}" class="form-control" required>{{$siswa->alamat}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>No Telp</label>
-                                    <input type="text" name="no_telp" class="form-control" placeholder="{{$siswa->no_telp}}" required>
+                                    <input type="text" name="no_telp" class="form-control" placeholder="{{$siswa->no_telp}}" value="{{$siswa->no_telp}}" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Cancel</button>
