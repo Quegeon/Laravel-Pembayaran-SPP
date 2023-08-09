@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SPPController;
 use App\Http\Controllers\UserController;
+use App\Models\Pembayaran;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,3 +57,7 @@ Route::post('/spp/store', [SPPController::class,'store']);
 Route::get('/spp/{id}/show', [SPPController::class,'show']);
 Route::post('/spp/{id}/update', [SPPController::class,'update']);
 Route::get('/spp/{id}/destroy', [SPPController::class,'destroy']);
+
+# Pembayaran Routes
+Route::get('/pembayaran', [PembayaranController::class,'index']);
+Route::get('/pembayaran/create', [PembayaranController::class,'create']);

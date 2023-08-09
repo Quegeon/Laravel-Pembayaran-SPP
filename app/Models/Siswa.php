@@ -20,9 +20,12 @@ class Siswa extends Model
         'no_telp'
     ];
 
-    public function Kelas()
-    {
+    public function Kelas () {
         return $this->belongsTo(Kelas::class, 'id_kelas', 'id');
+    }
+
+    public function Siswa () {
+        return $this->hasMany(Siswa::class, 'nis', 'nis');
     }
 
 }
