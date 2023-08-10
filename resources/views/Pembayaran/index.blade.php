@@ -7,6 +7,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                @if (session()->has('status'))
+                    <div class="alert alert-{{session('status.type')}}">
+                        {{session('status.title')}}
+                    </div>
+                @endif
                     <div class="card">
                         <div class="card-header">
                             <h4>Kelola Data Pembayaran</h4>
@@ -22,10 +27,10 @@
                                         <th>SPP</th>
                                         <th>Nominal</th>
                                         <th>Tahun</th>
-                                        <th>Keterangan</th>
-                                        <th>Jumlah Bayar</th>
                                         <th>Tanggal Bayar</th>
+                                        <th>Jumlah Bayar</th>
                                         <th>Petugas</th>
+                                        <th>Keterangan</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -33,7 +38,7 @@
                                     @foreach ($pembayaran as $p)                                        
                                     <tr>
                                         <td>{{$p->id}}</td>
-                                        <td>{{$p->Siswa->nama_siswa}}</td>
+                                        <td>{{$p->Siswa->nama}}</td>
                                         <td>{{$p->Siswa->Kelas->nama_kelas}}</td>
                                         <td>{{$p->SPP->keterangan}}</td>
                                         <td>{{$p->SPP->nominal}}</td>

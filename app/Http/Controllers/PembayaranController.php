@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pembayaran;
+use App\Models\Siswa;
+use App\Models\SPP;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
@@ -25,7 +28,10 @@ class PembayaranController extends Controller
      */
     public function create()
     {
-        return view('Pembayaran.create');
+        $siswa = Siswa::all();
+        $spp = SPP::all();
+        $user = User::all();
+        return view('Pembayaran.create', compact(['siswa','spp','user']));
     }
 
     /**
@@ -36,7 +42,20 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pembayaran::create([
+            'nis' => $request->nis,
+            'id_spp' => $request->id_spp,
+            'id_petugas' => $request->id_petugas,
+            'tgl_bayar' => $request->tgl_bayar,
+            'jumlah_bayar' => $request->jumlah_bayar,
+            'keterangan' => $request->keterangan,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/pembayaran')->with('status',[
+            'title' => 'Data has been added',
+            'type' => 'success'
+        ]);
     }
 
     /**
@@ -47,7 +66,11 @@ class PembayaranController extends Controller
      */
     public function show($id)
     {
-        //
+        $pembayaran = Pembayaran::find($id);
+        $siswa = Siswa::all();
+        $spp = SPP::all();
+        $user = User::all();
+        return view('Pembayaran.show', compact(['pembayaran','siswa','spp','user']));
     }
 
     /**
@@ -70,7 +93,21 @@ class PembayaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pembayaran = Pembayaran::find($id);
+        $pembayaran->update([
+            'nis' => $request->nis,
+            'id_spp' => $request->id_spp,
+            'id_petugas' => $request->id_petugas,
+            'jumlah_bayar' => $request->jumlah_bayar,
+            'tgl_bayar' => $request->tgl_bayar,
+            'keterangan' => $request->keterangan,
+            $request->except(['_token'])
+        ]);
+
+        return redirect('/pembayaran')->with('status',[
+            'title' => 'Data has been updated',
+            'type' => 'success'
+        ]);
     }
 
     /**
@@ -81,6 +118,11 @@ class PembayaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pembayaran = Pembayaran::find($id);
+        $pembayaran->delete();
+        return redirect('/pembayaran')->with('status',[
+            'title' => 'Data has been deleted',
+            'type' => 'warning'
+        ]);   
     }
 }
