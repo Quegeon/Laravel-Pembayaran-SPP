@@ -21,7 +21,7 @@
                             <table class="table table-stripped table-hover table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>NO / ID</th>
+                                        <th>No / ID</th>
                                         <th>Keterangan</th>
                                         <th>Tahun</th>
                                         <th>Nominal</th>

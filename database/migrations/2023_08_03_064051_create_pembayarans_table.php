@@ -15,7 +15,7 @@ class CreatePembayaransTable extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->char('nis', 8);
+            $table->char('nis', 11);
             $table->integer('id_spp');
             $table->integer('id_petugas');
             $table->date('tgl_bayar');

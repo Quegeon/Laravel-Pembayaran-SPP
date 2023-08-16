@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SPPController;
 use App\Http\Controllers\UserController;
-use App\Models\Pembayaran;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 # Dashboard Routes
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [DashboardController::class,'index']);
 
 # Users Routes
 Route::get('/user', [UserController::class,'index']);
