@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\SPPController;
 use App\Http\Controllers\UserController;
-use App\Models\Pembayaran;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+# Login Routes
+Route::get('/',[LoginController::class,'index']);
 
 # Dashboard Routes
 Route::get('/', function () {
