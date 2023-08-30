@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 # Dashboard Routes
-Route::get('/', [DashboardController::class,'index']);
+Route::get('/dashboard', [DashboardController::class,'index']);
 
 # Users Routes
 Route::get('/user', [UserController::class,'index']);
