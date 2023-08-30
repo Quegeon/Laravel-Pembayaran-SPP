@@ -15,8 +15,7 @@ class Pembayaran extends Model
         'id_petugas',
         'keterangan',
         'tgl_bayar',
-        'jumlah_bayar',
-        'keterangan'
+        'jumlah_bayar'
     ];
 
     public function Siswa () {

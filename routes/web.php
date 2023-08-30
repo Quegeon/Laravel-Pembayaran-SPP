@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PembayaranController;
@@ -21,11 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 # Login Routes
 Route::get('/',[LoginController::class,'index']);
+Route::post('/postlogin',[LoginController::class,'postlogin']);
 
 # Dashboard Routes
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', [DashboardController::class,'index']);
 
 # Users Routes
 Route::get('/user', [UserController::class,'index']);

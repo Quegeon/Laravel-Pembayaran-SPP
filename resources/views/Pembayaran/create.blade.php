@@ -32,12 +32,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Jumlah Bayar</label>
-                                    <input type="number" name="jumlah_bayar" class="form-control" placeholder="Masukkan Jumlah Bayar" required>
+                                    <input type="number" name="jumlah_bayar" class="form-control" placeholder="Masukkan Jumlah Bayar" max="{{$sp->nominal}}" min="1000" required>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Tanggal Bayar</label>
                                     <input type="date" name="tgl_bayar" class="form-control" placeholder="tgl_bayar" required>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label>Petugas</label>
                                     <select name="id_petugas" class="form-control" required>

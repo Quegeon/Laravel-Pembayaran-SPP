@@ -6,6 +6,7 @@ use App\Models\Pembayaran;
 use App\Models\Siswa;
 use App\Models\SPP;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PembayaranController extends Controller
@@ -46,7 +47,7 @@ class PembayaranController extends Controller
             'nis' => $request->nis,
             'id_spp' => $request->id_spp,
             'id_petugas' => $request->id_petugas,
-            'tgl_bayar' => $request->tgl_bayar,
+            'tgl_bayar' => Carbon::today(),
             'jumlah_bayar' => $request->jumlah_bayar,
             'keterangan' => $request->keterangan,
             $request->except(['_token'])

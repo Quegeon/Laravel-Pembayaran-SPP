@@ -10,10 +10,11 @@
             <h1 class="m-0">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
+            @if (session()->has('status'))
+                <div class="alert alert-{{ session('status.type') }}">
+                  {{ session('status.title') }}
+                </div>
+            @endif
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -28,14 +29,29 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$siswa_count}}</h3>
 
-                <p>New Orders</p>
+                <p>Siswa Terdaftar</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/siswa" class="small-box-footer">Info Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$kelas_count}}</h3>
+
+                <p>Jumlah Kelas</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <a href="/kelas" class="small-box-footer">Info Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -43,47 +59,22 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>
+                  @if ($total_transaksi->total_price == null)
+                  0
+                  @else
+                  {{$total_transaksi->total_price}}
+                  @endif
+                </h3>
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
-
-                <p>Unique Visitors</p>
+                <p>Total Transaksi Bulan Ini</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="/pembayaran" class="small-box-footer">Info Selengkapnya <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
         </div>
     </section>
 
@@ -93,59 +84,31 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Sample Table</h3>
+                    <h3>Histori Transaksi</h3>
                 </div>
                 <div class="card-body">
                 <table class="table table-bordered">
                   <thead>
                     <tr>
-                      <th style="width: 10px">#</th>
-                      <th>Task</th>
-                      <th>Progress</th>
-                      <th style="width: 40px">Label</th>
+                      <th style="width: 10px">No</th>
+                      <th>Siswa</th>
+                      <th>SPP</th>
+                      <th>Tanggal Bayar</th>
+                      <th>Jumlah Bayar</th>
+                      <th>Petugas</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1.</td>
-                      <td>Update software</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-danger">55%</span></td>
-                    </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Clean database</td>
-                      <td>
-                        <div class="progress progress-xs">
-                          <div class="progress-bar bg-warning" style="width: 70%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-warning">70%</span></td>
-                    </tr>
-                    <tr>
-                      <td>3.</td>
-                      <td>Cron job running</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-primary" style="width: 30%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                      <td>4.</td>
-                      <td>Fix and squish bugs</td>
-                      <td>
-                        <div class="progress progress-xs progress-striped active">
-                          <div class="progress-bar bg-success" style="width: 90%"></div>
-                        </div>
-                      </td>
-                      <td><span class="badge bg-success">90%</span></td>
-                    </tr>
+                    @foreach ($pembayaran as $p)
+                      <tr>
+                        <td>{{ $p->id }}</td>
+                        <td>{{ $p->Siswa->nis }} - {{ $p->Siswa->nama }}</td>
+                        <td>{{ $p->SPP->keterangan }} {{ $p->SPP->tahun }}</td>
+                        <td>{{ $p->tgl_bayar }}</td>
+                        <td>{{ $p->jumlah_bayar }}</td>
+                        <td>{{ $p->User->nama_petugas }}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
                 </div>

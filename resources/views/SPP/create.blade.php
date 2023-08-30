@@ -20,11 +20,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tahun</label>
-                                    <input type="number" name="tahun" class="form-control" placeholder="Masukkan Tahun" required>
+                                    <input type="number" name="tahun" class="form-control" placeholder="Masukkan Tahun" min="2000" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nominal</label>
-                                    <input type="number" name="nominal" class="form-control" placeholder="Masukkan Nominal" required>
+                                    <input type="number" name="nominal" class="form-control" placeholder="Masukkan Nominal" min="1000" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-secondary">Cancel</button>

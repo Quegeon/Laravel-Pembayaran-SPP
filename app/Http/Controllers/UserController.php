@@ -40,7 +40,7 @@ class UserController extends Controller
         User::create([
             'nama_petugas' => $request->nama_petugas,
             'username' => $request->username,
-            'password' => bcrypt($request->password),
+            'password' => $request->password,
             $request->except(['_token']),
         ]);
         return redirect('/user')->with('status',[
