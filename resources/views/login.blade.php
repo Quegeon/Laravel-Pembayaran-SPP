@@ -42,7 +42,7 @@
                 </center>
                 <h3 class="login-box-msg mb-4">Halaman Login</h3>
                 <form action="/postlogin" method="post">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="form-outline mb-4">
                         <input type="text" class="form-control" name="username" required>
                         <label class="form-label">Username</label>
