@@ -41,10 +41,10 @@
                                         <td>{{$p->Siswa->nama}}</td>
                                         <td>{{$p->Siswa->Kelas->nama_kelas}}</td>
                                         <td>{{$p->SPP->keterangan}}</td>
-                                        <td>{{$p->SPP->nominal}}</td>
+                                        <td>Rp. {{number_format($p->SPP->nominal,2,',','.')}}</td>
                                         <td>{{$p->SPP->tahun}}</td>
                                         <td>{{$p->tgl_bayar}}</td>
-                                        <td>{{$p->jumlah_bayar}}</td>
+                                        <td>Rp. {{number_format($p->jumlah_bayar,2,',','.')}}</td>
                                         <td>{{$p->User->nama_petugas}}</td>
                                         <td>{{$p->keterangan}}</td>
                                         <td>

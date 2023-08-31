@@ -12,6 +12,8 @@ class LoginController extends Controller
     }
 
     public function postlogin (Request $request) {
+        $request->except(['_token']);
+    
         if (Auth::attempt($request->only('username','password'))) {
             return redirect('/dashboard')->with('status',[
                 'title' => 'Successfuly Logged!',

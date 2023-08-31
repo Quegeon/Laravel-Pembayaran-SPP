@@ -61,9 +61,9 @@
               <div class="inner">
                 <h3>
                   @if ($total_transaksi->total_price == null)
-                  0
+                  Rp. 0
                   @else
-                  {{$total_transaksi->total_price}}
+                  Rp. {{ number_format($total_transaksi->total_price,2,',','.') }}
                   @endif
                 </h3>
 
@@ -105,7 +105,7 @@
                         <td>{{ $p->Siswa->nis }} - {{ $p->Siswa->nama }}</td>
                         <td>{{ $p->SPP->keterangan }} {{ $p->SPP->tahun }}</td>
                         <td>{{ $p->tgl_bayar }}</td>
-                        <td>{{ $p->jumlah_bayar }}</td>
+                        <td>Rp. {{ number_format($p->jumlah_bayar,2,',','.') }}</td>
                         <td>{{ $p->User->nama_petugas }}</td>
                       </tr>
                     @endforeach
