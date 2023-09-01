@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 # Login Routes
 Route::get('/',[LoginController::class,'index']);
 Route::post('/postlogin',[LoginController::class,'postlogin']);
+Route::get('/logout', [LoginController::class,'logout']);
 
 # Dashboard Routes
 Route::get('/dashboard', [DashboardController::class,'index']);
