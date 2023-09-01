@@ -19,7 +19,7 @@
                             <a href="/pembayaran/print" class="btn btn-secondary">Print</a>
                         </div>
                         <div class="card-body">
-                            <table class="table table-stripped table-hover table-bordered">
+                            <table id="example" class="table table-stripped table-hover table-bordered">
                                 <thead>
                                     <tr>
                                         <th>No / ID</th>

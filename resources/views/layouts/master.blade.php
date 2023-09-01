@@ -25,13 +25,15 @@
   <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}">
+  <!-- Datatable -->
+  <link rel="stylesheet" href="{{ asset('datatable/dataTables.bootstrap4.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{asset('assets/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{asset('assets/img/logo/logo_marhas.png')}}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -53,7 +55,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{asset('assets/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{asset('assets/img/logo/logo_marhas.png')}}" alt="SMK Marhas Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">PEMBAYARAN SPP</span>
     </a>
 
@@ -117,5 +119,9 @@
 <!-- AdminLTE App -->
 <script src="{{asset('assets/js/adminlte.js')}}"></script>
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
+<script src="{{ asset('datatable/datatables.min.js') }}"></script>
+<script>
+  $(document).ready(function (){$('#example').DataTable()})
+</script>
 </body>
 </html>

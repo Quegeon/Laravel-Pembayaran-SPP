@@ -101,7 +101,7 @@
                   <tbody>
                     @foreach ($pembayaran as $p)
                       <tr>
-                        <td>{{ $p->id }}</td>
+                        <td>{{ $loop->iteration }}</td></td>
                         <td>{{ $p->Siswa->nis }} - {{ $p->Siswa->nama }}</td>
                         <td>{{ $p->SPP->keterangan }} {{ $p->SPP->tahun }}</td>
                         <td>{{ $p->tgl_bayar }}</td>

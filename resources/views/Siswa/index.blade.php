@@ -18,7 +18,7 @@
                             <a href="/siswa/create" class="btn btn-primary">Tambah Data</a>
                         </div>
                         <div class="card-body">
-                            <table class="table table-stripped table-hover table-bordered">
+                            <table id="example" class="table table-stripped table-hover table-bordered">
                                 <thead>
                                     <tr> 
                                         <th>NIS</th>
