@@ -119,6 +119,7 @@
 <!-- AdminLTE App -->
 <script src="{{asset('assets/js/adminlte.js')}}"></script>
 <script src="{{asset('assets/js/pages/dashboard.js')}}"></script>
+<script src="{{ asset('datatable/datatables.min.js') }}"></script>
 <script>
   $(document).ready(function (){$('#example').DataTable()})
 </script>
