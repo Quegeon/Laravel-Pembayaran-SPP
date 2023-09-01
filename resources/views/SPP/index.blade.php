@@ -37,7 +37,7 @@
                                         <td>Rp. {{number_format($s->nominal,2,',','.')}}</td>
                                         <td>
                                             <a href="/spp/{{$s->id}}/show" class="btn btn-warning">Edit</a>
-                                            <a href="/spp/{{$s->id}}/destroy" class="btn btn-warning" onclick="return confirm('Delete Data Ini?')">Delete</a>
+                                            <a href="/spp/{{$s->id}}/destroy" class="btn btn-danger" onclick="return confirm('Delete Data Ini?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -39,7 +39,7 @@
                                         <td>{{$s->no_telp}}</td>
                                         <td>
                                             <a href="/siswa/{{$s->nis}}/show" class="btn btn-warning">Edit</a>
-                                            <a href="/siswa/{{$s->nis}}/destroy" class="btn btn-warning" onclick="return confirm('Delete Data Ini?')">Delete</a>
+                                            <a href="/siswa/{{$s->nis}}/destroy" class="btn btn-danger" onclick="return confirm('Delete Data Ini?')">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

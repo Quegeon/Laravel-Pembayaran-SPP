@@ -126,4 +126,14 @@ class PembayaranController extends Controller
             'type' => 'warning'
         ]);   
     }
+
+    public function print () {
+        $pembayaran = Pembayaran::all();
+        $year = Carbon::today()->year;
+        return view('Pembayaran.print', compact(['pembayaran','year']));
+    }
+
+    public function receipt($id) {
+        
+    }
 }

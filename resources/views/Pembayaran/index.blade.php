@@ -16,6 +16,7 @@
                         <div class="card-header">
                             <h4>Kelola Data Pembayaran</h4>
                             <a href="/pembayaran/create" class="btn btn-primary">Tambah Data</a>
+                            <a href="/pembayaran/print" class="btn btn-secondary">Print</a>
                         </div>
                         <div class="card-body">
                             <table class="table table-stripped table-hover table-bordered">
@@ -49,7 +50,8 @@
                                         <td>{{$p->keterangan}}</td>
                                         <td>
                                             <a href="/pembayaran/{{$p->id}}/show" class="btn btn-warning">Edit</a>
-                                            <a href="/pembayaran/{{$p->id}}/destroy" class="btn btn-warning">Hapus</a>
+                                            <a href="/pembayaran/{{$p->id}}/destroy" class="btn btn-danger" onclick="return confirm('Delete Data Ini?')">Hapus</a>
+                                            <a href="/pembayaran/{{ $p->id }}/receipt" class="btn btn-success">Receipt</a>
                                         </td>
                                     @endforeach
                                     </tr>
