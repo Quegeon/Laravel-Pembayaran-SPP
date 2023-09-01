@@ -7,6 +7,7 @@
     <title>Halaman Print</title>
 </head>
 <body onload="window.print()">
+    <br>
     <center>
         <h1>LAPORAN DATA PEMBAYARAN {{ $year }}</h1>
         <br>

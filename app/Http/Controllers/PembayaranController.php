@@ -134,6 +134,7 @@ class PembayaranController extends Controller
     }
 
     public function receipt($id) {
-        
+        $pembayaran = Pembayaran::find($id);
+        return view('Pembayaran.receipt', compact(['pembayaran']));
     }
 }
